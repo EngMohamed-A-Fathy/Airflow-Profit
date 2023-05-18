@@ -1,6 +1,10 @@
 # Airflow Data Pipeline: Load Employee Data from S3 to Snowflake
 This project demonstrates an Apache Airflow data pipeline for loading employee data from an S3 bucket to Snowflake. The pipeline automates the process of extracting data from PostgreSQL, uploading it to S3, joining and detecting new or changed rows, and finally loading the data into Snowflake.
 
+The project is designed for a company that updates its employees' salary once per year. The data pipeline handles this scenario by detecting new inserted rows with updated salary information. If an employee already exists in the database, the pipeline updates the existing row with the current date and inserts a new row with the updated salary and a high date. If an employee doesn't exist in the database, the pipeline simply inserts a new row.
+
+By implementing this pipeline, the company can efficiently manage its employee data and ensure that the latest salary information is accurately recorded in Snowflake.
+
 ## Prerequisites
 ### Before running the pipeline, ensure that the following requirements are met:
 
